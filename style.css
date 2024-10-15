@@ -5,7 +5,7 @@ body {
   line-height: 1.5;
   padding: 4em 1em;
   color: #073642;
-  background-color: #EC6F7B;
+  background-color: #F17E86;
 }
 h1,
 h2,
@@ -27,5 +27,5 @@ ul {
 /* New styles for last-updated */
 #last-updated {
   font-style: italic;
-  color: #FBDADC; /* Change this color as needed */
+  color: #F7B6BA; /* Change this color as needed */
 }
