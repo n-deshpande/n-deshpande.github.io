@@ -1,49 +1,70 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            text-align: center;
-            padding: 50px;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #FCBAA1;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        h1 {
-            color: #007bff;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+<meta charset="utf-8">
+<title>ndeshpande.io</title>
+<style>
+body {
+  margin: 0 auto;
+  max-width: 50em;
+  font-family: sans-serif;
+  line-height: 1.5;
+  padding: 4em 1em;
+  color: #073642;
+  background-color: #DBEBC0;
+}
+h1,
+h2,
+strong {
+  color: #333;
+}
+a {
+  color: #268bd2;
+  text-decoration: none;
+}
+ul {
+  margin: 0;
+}
+.black-to-link {
+  /* from https://codepen.io/sosuke/pen/Pjoqqp */
+  filter: invert(51%) sepia(91%) saturate(6272%) hue-rotate(232deg) brightness(101%) contrast(100%);
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Nishant Deshpande</h1>
-        <p>Welcome to my personal page. I'm a Data Scientist who loves solving problems with data and technology!.</p>
-        <p>Feel free to connect with me:</p>
-        <p>
-            <a href="https://www.linkedin.com/in/nxdeshpande" target="_blank">LinkedIn</a> | 
-            <a href="https://github.com/n-deshpande" target="_blank">GitHub</a> | 
-            <a href="mailto:nxdeshpande@gmail.com">Email Me</a>
-        </p>
-    </div>
+
+<img src="profile.jpg" alt="Profile Picture" style="width: 200px; border-radius: 20px; margin: 20px 0;">
+
+<h1>Nishant Deshpande</h1>
+<p>
+    <i class="fas fa-envelope"></i> <a href=mailto:nxdeshpande@gmail.com><br>
+    <i class="fab fa-github"></i> <a href="https://github.com/n-deshpande">GitHub</a><br>
+    <i class="fab fa-youtube"></i> <a href="https://www.youtube.com/">YouTube</a><br>
+    <i class="fab fa-stack-overflow"></i> <a href="https://stackoverflow.com/users/14988404/nish">Stack Overflow</a><br>
+</p>
+<br>
+<a href="https://github.com/oconnor663">GitHub</a>
+<br>
+<a href="https://www.youtube.com/channel/UClzhxOfYEoDW4G7NzsoV4TA">YouTube</a>
+<br>
+<a href="https://stackoverflow.com/users/823869/jack-oconnor">Stack Overflow</a>
+<br>
+<a href="https://keybase.io/oconnor663">Keybase</a> (<a href="keybase.txt">keybase.txt</a>)
+
+<h2>projects</h2>
+
+
+<h2>articles</h2>
+
+<a href="async_intro.html">[rough draft] Async Rust in Three Parts</a>
+<br>
+
+<a href="object_soup.html">Object Soup is Made of Indexes</a> - how to do shared, mutable objects the Rust way
+<br>
+
+<a href="safety_and_soundness.html">Safety and Soundness in Rust</a>
+<br>
+
 </body>
 </html>
