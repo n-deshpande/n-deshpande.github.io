@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official Expeditionary Application for Project Styx Retrieval - Office of Planar Affairs">
+    <meta name="theme-color" content="#2c1810">
+    <title>Expeditionary Application | Office of Planar Affairs</title>
+
+    <!-- Favicon - Wax Seal -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3CradialGradient id='seal' cx='30%25' cy='30%25'%3E%3Cstop offset='0%25' stop-color='%23c41e3a'/%3E%3Cstop offset='50%25' stop-color='%238b2500'/%3E%3Cstop offset='100%25' stop-color='%235c1a0a'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='48' fill='url(%23seal)'/%3E%3Ccircle cx='50' cy='50' r='42' fill='none' stroke='rgba(255,255,255,0.15)' stroke-width='2'/%3E%3Ctext x='50' y='62' text-anchor='middle' font-family='serif' font-size='40' font-weight='bold' fill='rgba(255,255,255,0.2)'%3EM%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3CradialGradient id='seal' cx='30%25' cy='30%25'%3E%3Cstop offset='0%25' stop-color='%23c41e3a'/%3E%3Cstop offset='50%25' stop-color='%238b2500'/%3E%3Cstop offset='100%25' stop-color='%235c1a0a'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='48' fill='url(%23seal)'/%3E%3Ccircle cx='50' cy='50' r='42' fill='none' stroke='rgba(255,255,255,0.15)' stroke-width='2'/%3E%3Ctext x='50' y='62' text-anchor='middle' font-family='serif' font-size='40' font-weight='bold' fill='rgba(255,255,255,0.2)'%3EM%3C/text%3E%3C/svg%3E">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Password Gate Overlay -->
+    <div id="password-gate" class="overlay">
+        <div class="gate-container">
+            <div class="wax-seal"></div>
+            <h1>Office of Planar Affairs</h1>
+            <p class="subtitle">Division of Extraplanar Asset Recovery</p>
+            <div class="gate-form">
+                <label for="gate-password">Authorization Code Required</label>
+                <input type="password" id="gate-password" placeholder="Enter clearance code" autocomplete="off">
+                <button type="button" id="gate-submit">Verify Credentials</button>
+                <p class="gate-error" id="gate-error"></p>
+            </div>
+            <p class="gate-hint">Clearance level: Project designation</p>
+        </div>
+    </div>
+
+    <!-- Success Overlay -->
+    <div id="success-overlay" class="overlay hidden">
+        <div class="success-container">
+            <div class="stamp">RECEIVED</div>
+            <h2>Application Acknowledged</h2>
+            <p>Your submission has been logged and forwarded to the appropriate processing division.</p>
+            <p class="warning">Await further instruction. Do not attempt to withdraw.</p>
+            <p class="reference">Reference: MK-7-STYX-<span id="ref-number"></span></p>
+        </div>
+    </div>
+
+    <!-- Main Form -->
+    <main id="application-form" class="hidden">
+        <header>
+            <div class="header-seal"></div>
+            <div class="header-text">
+                <p class="org-name">Office of Planar Affairs</p>
+                <p class="division">Division of Extraplanar Asset Recovery</p>
+                <p class="confidential">CONFIDENTIAL - EYES ONLY</p>
+            </div>
+        </header>
+
+        <article class="document">
+            <!-- Decorative corner flourishes -->
+            <div class="corner-flourish top-left"></div>
+            <div class="corner-flourish top-right"></div>
+            <div class="corner-flourish bottom-left"></div>
+            <div class="corner-flourish bottom-right"></div>
+
+            <h1>Expeditionary Application</h1>
+            <h2 class="project-code">Project Code: <span class="highlight">STYX RETRIEVAL</span></h2>
+
+            <form id="ajaxForm" action="https://getform.io/f/amdjyleb" method="POST">
+
+                <!-- Applicant Information -->
+                <section class="form-section applicant-info">
+                    <div class="field-row">
+                        <label for="applicant-name">Applicant Name:</label>
+                        <input type="text" id="applicant-name" name="applicant_name" required>
+                    </div>
+                    <div class="field-row">
+                        <label for="aliases">Preferred Titles / Aliases:</label>
+                        <input type="text" id="aliases" name="aliases">
+                    </div>
+                    <div class="field-row">
+                        <label for="plane-origin">Plane of Origin (if relevant):</label>
+                        <input type="text" id="plane-origin" name="plane_of_origin">
+                    </div>
+                </section>
+
+                <!-- Introduction -->
+                <section class="intro-text">
+                    <p>Thank you for expressing interest in Project <em>Styx Retrieval</em>.</p>
+
+                    <p>To be successful in this application, candidates should demonstrate:</p>
+                    <ul>
+                        <li>Comfort operating in morally ambiguous environments</li>
+                        <li>Willingness to make irreversible decisions under pressure</li>
+                        <li>Acceptance that "success" and "personal well-being" are not mutually guaranteed</li>
+                    </ul>
+
+                    <p class="notice">Please answer all questions honestly. </p>
+
+                    <div class="mission-brief">
+                        <p><em>Styx Retrieval</em> involves the acquisition of an ancient Leviathan-class vessel currently entombed in the frozen layer of Stygia. The asset will be dismantled in the Outlands to prevent long-term strategic imbalance in the Blood War.</p>
+
+                        <p>This task may require:</p>
+                        <ul>
+                            <li>Theft</li>
+                            <li>Deception</li>
+                            <li>The suppression of personal convictions</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <hr class="divider">
+
+                <!-- Question 1: Role Specialisation -->
+                <section class="form-section question">
+                    <h3>1. Role Specialisation & Core Competency</h3>
+                    <blockquote>"What you do when things go wrong"</blockquote>
+
+                    <p class="instruction">When an operation deviates from plan (as it will), which response best describes you?</p>
+                    <p class="instruction-note">(Select one primary option. You may select one secondary.)</p>
+
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="role_specialisation[]" value="impose_structure">
+                            <span class="checkmark"></span>
+                            I impose structure: identify threats, assign roles, establish control
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="role_specialisation[]" value="adapt_fluidly">
+                            <span class="checkmark"></span>
+                            I adapt fluidly: exploit chaos, improvise tactics, strike decisively
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="role_specialisation[]" value="manipulate_systems">
+                            <span class="checkmark"></span>
+                            I manipulate systems: spells, tools, contracts, environments
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="role_specialisation[]" value="endure_advance">
+                            <span class="checkmark"></span>
+                            I endure and advance: absorb punishment, protect others, outlast
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="role_specialisation[]" value="observe_exploit">
+                            <span class="checkmark"></span>
+                            I observe and exploit weaknesses: precise, patient, surgical
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="role_specialisation[]" value="inspire_command">
+                            <span class="checkmark"></span>
+                            I inspire or command others through presence, belief, or fear
+                        </label>
+                    </div>
+                </section>
+
+                <hr class="divider">
+
+                <!-- Question 2: Philosophical Outlook -->
+                <section class="form-section question">
+                    <h3>2. Philosophical Outlook</h3>
+
+                    <p class="preamble">The Blood War persists because neither side is permitted total victory.</p>
+
+                    <p class="instruction">In a forced intervention scenario where inaction causes measurable harm, your priority would be to:</p>
+
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="philosophical_outlook" value="preserve_order">
+                            <span class="radiomark"></span>
+                            Preserve order, even if it is cruel
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="philosophical_outlook" value="prevent_tyranny">
+                            <span class="radiomark"></span>
+                            Prevent tyranny, even if chaos spreads
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="philosophical_outlook" value="ensure_balance">
+                            <span class="radiomark"></span>
+                            Ensure neither side gains advantage
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="philosophical_outlook" value="exploit_conflict">
+                            <span class="radiomark"></span>
+                            Exploit the conflict for a greater personal or future goal
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="philosophical_outlook" value="avoid_engagement">
+                            <span class="radiomark"></span>
+                            Avoid engagement entirely if possible
+                        </label>
+                    </div>
+                </section>
+
+                <hr class="divider">
+
+                <!-- Question 3: Motivation -->
+                <section class="form-section question">
+                    <h3>3. Motivation & Reward Structure</h3>
+
+                    <p class="instruction">Which incentive most accurately reflects <em>why</em> you accepted this contract?</p>
+
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="motivation" value="gold">
+                            <span class="radiomark"></span>
+                            Gold and material advancement
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="motivation" value="knowledge">
+                            <span class="radiomark"></span>
+                            Knowledge forbidden or lost
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="motivation" value="reputation">
+                            <span class="radiomark"></span>
+                            Reputation, legacy, or recognition
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="motivation" value="redemption">
+                            <span class="radiomark"></span>
+                            Personal redemption or atonement
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="motivation" value="loyalty">
+                            <span class="radiomark"></span>
+                            Loyalty to a person, cause, or oath
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="motivation" value="curiosity">
+                            <span class="radiomark"></span>
+                            Curiosity / inevitability ("I had to see it")
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="motivation" value="avoiding_fate">
+                            <span class="radiomark"></span>
+                            Avoiding a fate worse than death
+                        </label>
+                    </div>
+                </section>
+
+                <hr class="divider">
+
+                <!-- Question 4: Psychological Resilience -->
+                <section class="form-section question">
+                    <h3>4. Psychological Resilience</h3>
+
+                    <p class="preamble">The River Styx erases memory. Stygia erodes hope.</p>
+
+                    <p class="instruction">Which best describes your internal anchor?</p>
+
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="psychological_anchor" value="vow">
+                            <span class="radiomark"></span>
+                            A vow or oath
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="psychological_anchor" value="person">
+                            <span class="radiomark"></span>
+                            A person you must return to
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="psychological_anchor" value="future_goal">
+                            <span class="radiomark"></span>
+                            A future goal you refuse to forget
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="psychological_anchor" value="principle">
+                            <span class="radiomark"></span>
+                            A principle you will not compromise
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="psychological_anchor" value="spite">
+                            <span class="radiomark"></span>
+                            Spite, anger, or unfinished business
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="psychological_anchor" value="nothing">
+                            <span class="radiomark"></span>
+                            Nothing. I adapt to loss.
+                        </label>
+                    </div>
+
+                    <div class="optional-field">
+                        <label for="reflection">Optional Reflection:</label>
+                        <blockquote>If parts of your past were erased, what <em>kind</em> of person would remain?</blockquote>
+                        <textarea id="reflection" name="reflection" rows="4" placeholder="Your response (optional)..."></textarea>
+                    </div>
+                </section>
+
+                <hr class="divider">
+
+                <!-- Question 5: Ethics & Corruption -->
+                <section class="form-section question">
+                    <h3>5. Ethics & Corruption Tolerance</h3>
+                    <p class="section-subtitle">Incentive Compatibility Review</p>
+
+                    <div class="scenario-box">
+                        <p>During the mission, you may be offered:</p>
+                        <ul>
+                            <li>Power beyond your current limits</li>
+                            <li>Knowledge that reshapes reality</li>
+                            <li>Relief from pain, guilt, or fear</li>
+                        </ul>
+
+                        <p>In exchange for:</p>
+                        <ul>
+                            <li>Strategic assets</li>
+                            <li>Compromise of mission parameters</li>
+                            <li>Long-term obligation to hostile entities</li>
+                        </ul>
+                    </div>
+
+                    <p class="instruction">Your response would most likely be:</p>
+
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="corruption_response" value="immediate_refusal">
+                            <span class="radiomark"></span>
+                            Immediate refusal
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="corruption_response" value="feigned_compliance">
+                            <span class="radiomark"></span>
+                            Feigned compliance, eventual betrayal
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="corruption_response" value="negotiation">
+                            <span class="radiomark"></span>
+                            Negotiation for acceptable terms
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="corruption_response" value="acceptance_if_aligned">
+                            <span class="radiomark"></span>
+                            Acceptance if the price aligns
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="corruption_response" value="acceptance_immediate">
+                            <span class="radiomark"></span>
+                            Acceptance without hesitation
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="corruption_response" value="acceptance_controlled">
+                            <span class="radiomark"></span>
+                            Acceptance, believing I could control the consequences
+                        </label>
+                    </div>
+                </section>
+
+                <hr class="divider">
+
+                <!-- Question 6: Technical & Arcane -->
+                <section class="form-section question">
+                    <h3>6. Technical & Arcane Interface</h3>
+
+                    <p class="preamble">The strategic asset requires direct mental and/or spiritual bonding. Side effects include visions of death, echoes of consumed lives, and loss of emotional insulation.</p>
+
+                    <p class="instruction">Which best describes your relationship with power?</p>
+
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="power_relationship" value="tool">
+                            <span class="radiomark"></span>
+                            I wield power as a tool
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="power_relationship" value="discipline">
+                            <span class="radiomark"></span>
+                            I channel power through discipline
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="power_relationship" value="bargain">
+                            <span class="radiomark"></span>
+                            I bargain for power knowingly
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="power_relationship" value="faith">
+                            <span class="radiomark"></span>
+                            Power flows through faith or belief
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="power_relationship" value="inherited">
+                            <span class="radiomark"></span>
+                            Power is inherited, awakened, or instinctive
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="power_relationship" value="feared">
+                            <span class="radiomark"></span>
+                            Power frightens me, but I will use it
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="power_relationship" value="forbidden">
+                            <span class="radiomark"></span>
+                            Power should not exist in this form
+                        </label>
+                    </div>
+                </section>
+
+                <hr class="divider">
+
+                <!-- Question 7: Risk & Failure -->
+                <section class="form-section question">
+                    <h3>7. Risk & Failure Response</h3>
+
+                    <p class="instruction">When a plan fails catastrophically, your instinct is to:</p>
+
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="failure_response" value="double_down">
+                            <span class="radiomark"></span>
+                            Double down and force success
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="failure_response" value="withdraw_reassess">
+                            <span class="radiomark"></span>
+                            Withdraw, reassess, and re-engage
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="failure_response" value="sacrifice">
+                            <span class="radiomark"></span>
+                            Sacrifice resources (or people) to complete the objective
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="failure_response" value="adapt_goal">
+                            <span class="radiomark"></span>
+                            Adapt the goal itself
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="failure_response" value="escalate">
+                            <span class="radiomark"></span>
+                            Escalate violence
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="failure_response" value="accept_survive">
+                            <span class="radiomark"></span>
+                            Accept failure and survive
+                        </label>
+                    </div>
+                </section>
+
+                <hr class="divider">
+
+                <!-- Question 8: Authority -->
+                <section class="form-section question">
+                    <h3>8. Authority & Command</h3>
+
+                    <p class="instruction">When operating under a powerful patron or commander (e.g. Mordenkainen):</p>
+
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="authority_response" value="follow_precisely">
+                            <span class="radiomark"></span>
+                            I follow orders precisely
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="authority_response" value="interpret_pragmatically">
+                            <span class="radiomark"></span>
+                            I interpret orders pragmatically
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="authority_response" value="comply_own_agenda">
+                            <span class="radiomark"></span>
+                            I comply while pursuing my own agenda
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="authority_response" value="challenge">
+                            <span class="radiomark"></span>
+                            I challenge authority if it conflicts with my values
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="authority_response" value="reject">
+                            <span class="radiomark"></span>
+                            I reject authority outright
+                        </label>
+                    </div>
+                </section>
+
+                <hr class="divider">
+
+                <!-- Question 9: Operational Background -->
+                <section class="form-section question">
+                    <h3>9. Operational Background</h3>
+                    <blockquote>"What shaped you"</blockquote>
+
+                    <p class="instruction">Select any that apply:</p>
+
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="background[]" value="military">
+                            <span class="checkmark"></span>
+                            Military or formal training
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="background[]" value="arcane">
+                            <span class="checkmark"></span>
+                            Arcane academy or tutelage
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="background[]" value="religious">
+                            <span class="checkmark"></span>
+                            Religious or cult affiliation
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="background[]" value="criminal">
+                            <span class="checkmark"></span>
+                            Criminal, mercenary, or outlaw past
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="background[]" value="noble">
+                            <span class="checkmark"></span>
+                            Noble, bureaucratic, or scholarly origin
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="background[]" value="survivor">
+                            <span class="checkmark"></span>
+                            Survivor of a planar catastrophe
+                        </label>
+                    </div>
+                </section>
+
+                <hr class="divider">
+
+                <!-- Acknowledgments -->
+                <section class="form-section acknowledgments">
+                    <div class="checkbox-group acknowledgment-checkboxes">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="ack_altered" value="yes" required>
+                            <span class="checkmark"></span>
+                            I acknowledge that this mission may permanently alter my capabilities, loyalties, or sense of self.
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="ack_balance" value="yes" required>
+                            <span class="checkmark"></span>
+                            I understand that Balance does not mean fairness.
+                        </label>
+                    </div>
+                </section>
+
+                <!-- Signature -->
+                <section class="form-section signature-section">
+                    <div class="field-row signature-row">
+                        <label for="signature">Signature:</label>
+                        <input type="text" id="signature" name="signature" required class="signature-input">
+                    </div>
+                    <div class="field-row">
+                        <label for="date-planar">Date (Planar):</label>
+                        <input type="text" id="date-planar" name="date_planar" placeholder="e.g., 3rd Hammer, Year of the Scarlet Witch">
+                    </div>
+                </section>
+
+                <!-- Submit -->
+                <section class="form-section submit-section">
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </section>
+
+            </form>
+        </article>
+
+        <footer>
+            <p>Office of Planar Affairs &bull; Division of Extraplanar Asset Recovery</p>
+            <p class="footer-note">This document is binding across all known planes of existence.</p>
+        </footer>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
